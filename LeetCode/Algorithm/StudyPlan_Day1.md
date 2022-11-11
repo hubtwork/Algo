@@ -1,5 +1,7 @@
 ## LeetCode Algorithm StudyPlan
 
+<img src="../../assets/leetcode_study_day1.png" alt="leetcode_study_day1" style="zoom:50%;" />
+
 ### Day 1
 
 - [704. Binary Search](https://leetcode.com/problems/binary-search/?envType=study-plan&id=algorithm-i)
@@ -86,3 +88,29 @@ class Solution: VersionControl() {
 
 ---
 
+#### 35. Search Insert Position
+
+- **lang** `kotlin`
+- **tags** `Binary Search`
+
+```kotlin
+class Solution {
+    fun searchInsert(nums: IntArray, target: Int): Int {
+        return searchInternal(nums, target, 0, nums.size)
+    }
+    
+    fun searchInternal(nums: IntArray, target: Int, l: Int, r: Int): Int {
+        // can't move left cursor anymore, find proper insert position
+        if (l >= r) return l
+        val x = (l+r)/2
+        return when {
+            // move cursor to start
+            nums[x] > target -> searchInternal(nums, target, l, x)
+            // move cursor to end
+            nums[x] < target -> searchInternal(nums, target, x+1, r)
+            // find
+            else -> return x
+        }
+    }
+}
+```
