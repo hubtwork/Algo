@@ -39,3 +39,50 @@ class Solution {
 
 ---
 
+#### 278. First Bad Version
+
+- **lang** `kotlin`
+- **tags** `Binary Search`
+
+> At first, Error occured. ( Runtime Error - **Line 16: Exception in thread "main" java.lang.StackOverflowError** ) 
+>
+> ```kotlin
+> // last Input
+> 2126753390
+> 1702766719
+> ```
+>
+> **Analyze**
+>
+> **`kotlin Int`** is 4byte and can serve `-21B ~ 21B` . At upper case, summation is over `Int value range` stack overflow will occur. Just fix the calculation for middle cursor like below.
+>
+> ```kotlin
+> // origin
+> val x = (l+r)/2
+> // fixed
+> val x = l + (r-l)/2
+> ```
+
+```kotlin
+class Solution: VersionControl() {
+    override fun firstBadVersion(n: Int) : Int {
+        return findInternal(1, n)
+	}
+    // Internal recursive search function
+    fun findInternal(l: Int, r: Int): Int {
+        // if cursor overlapped, minimum value is firstBad
+        if (l >= r) return l
+        // avoid :: if Int value is big enough, stack overflow error will occur
+        val x = l + (r-l)/2
+        return when (isBadVersion(x)) {
+            // if target is badVersion, move scope to start dir
+            true -> findInternal(l, x)
+            // if target isn't badVersion, move scope to end dir
+            false -> findInternal(x+1, r)
+        }
+    }
+}
+```
+
+---
+
