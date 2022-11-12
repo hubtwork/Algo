@@ -45,4 +45,33 @@ class Solution {
 #### 189. Rotate Array
 
 - **lang**  `kotlin` 
-- **tags**  `Array` `Sort` `Two Pointer`
+- **tags**  `Array` , `Extension Function`
+
+```kotlin
+// Time-C O(n) Solution with Space-C O(1)
+// Just shifting is like partial-reverse
+class Solution {
+    fun rotate(nums: IntArray, k: Int): Unit {
+        val t = k % nums.size
+        if (t == 0) return
+        // reverse ALl array
+        nums.reverse()
+        // reverse [0 ~ t-1]
+        nums.reverse(0, t-1)
+        // reverse [k ~ size-1]
+        nums.reverse(t)
+    }
+    fun IntArray.reverse(start: Int = 0, end: Int = this.size-1) {
+        var left = start
+        var right = end
+        while (left < right) {
+            val value = this[right]
+            set(right--, this[left])
+            set(left++, value)
+        }
+    }
+}
+```
+
+---
+
