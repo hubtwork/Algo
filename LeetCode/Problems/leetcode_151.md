@@ -6,7 +6,7 @@
 >
 > 100% was the first time in my life, so just attached it. XD
 
-<img src="/Users/alenheo/Desktop/repo/algo/assets/leetcode_151_prize.png" alt="leetcode_study_day2" style="zoom:50%;" />
+<img src="../../assets/leetcode_151_prize.png" alt="leetcode_151_prize.png" style="zoom:50%;" />
 
 #### 151. Reverse Words in a String
 

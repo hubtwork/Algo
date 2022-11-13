@@ -1,6 +1,6 @@
 ## LeetCode Algorithm StudyPlan
 
-<img src="/Users/alenheo/Desktop/repo/algo/assets/leetcode_study_day2.png" alt="leetcode_study_day2" style="zoom:50%;" />
+<img src="../../assets/leetcode_study_day2.png" alt="leetcode_study_day2" style="zoom:50%;" />
 
 ### Day 2
 
