@@ -13,7 +13,7 @@
 - **link**  [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
 
 - **lang**  `kotlin` 
-- **tags**  `Array` `DP` `DFS` `Matrix` `Simulation`
+- **tags**  `String` `Two Pointers` 
 
 ```kotlin
 class Solution {
