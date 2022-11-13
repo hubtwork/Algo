@@ -40,7 +40,31 @@ class Solution {
 
 ---
 
-#### 283. Move Zeroes
+#### 167. Two Sum II - Input Array Is Sorted
 
 - **lang**  `kotlin` 
-- **tags**  `Array`  `Two Pointer`
+- **tags**  `Array`  `Two Pointer` `Binary Search` 
+
+```kotlin
+class Solution {
+    fun twoSum(nums: IntArray, target: Int): IntArray {
+        /*
+            calculation
+            1. if summation > target, must decrease summation. so move right pointer
+            2. if summation < target, must increase summation. so move left pointer
+        */
+        var left = 0
+        var right = nums.size - 1
+        var sum = nums[left] + nums[right]
+        while(sum != target) {
+            if (sum > target) right--
+            else left++
+            sum = nums[left] + nums[right]
+        }
+        return intArrayOf(left+1, right+1)
+    }
+}
+```
+
+---
+
