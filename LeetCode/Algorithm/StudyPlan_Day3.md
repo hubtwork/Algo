@@ -12,7 +12,7 @@
 #### 283. Move Zeroes
 
 - **lang**  `kotlin` 
-- **tags**  `Array`  `Two Pointer`
+- **tags**  `Array`  `Two Pointers`
 
 ```kotlin
 class Solution {
@@ -43,7 +43,7 @@ class Solution {
 #### 167. Two Sum II - Input Array Is Sorted
 
 - **lang**  `kotlin` 
-- **tags**  `Array`  `Two Pointer` `Binary Search` 
+- **tags**  `Array`  `Two Pointers` `Binary Search` 
 
 ```kotlin
 class Solution {

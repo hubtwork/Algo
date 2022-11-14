@@ -12,7 +12,7 @@
 #### 977. Squares of a Sorted Array
 
 - **lang**  `kotlin` 
-- **tags**  `Array` `Sort` `Two Pointer`
+- **tags**  `Array` `Sort` `Two Pointers`
 
 ```kotlin
 // Basic Solution with first pow all and sort array
@@ -45,7 +45,7 @@ class Solution {
 #### 189. Rotate Array
 
 - **lang**  `kotlin` 
-- **tags**  `Array` , `Extension Function`
+- **tags**  `Array`  `Extension Function`
 
 ```kotlin
 // Time-C O(n) Solution with Space-C O(1)
