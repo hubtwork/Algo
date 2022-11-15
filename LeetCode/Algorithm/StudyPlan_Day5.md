@@ -46,3 +46,51 @@ class Solution {
 
 ---
 
+#### 19. Remove Nth Node From End of List
+
+- **lang**  `kotlin` 
+- **tags**  `Linked List`  `Two Pointers`
+
+```kotlin
+/**
+ * Example:
+ * var li = ListNode(5)
+ * var v = li.`val`
+ * Definition for singly-linked list.
+ * class ListNode(var `val`: Int) {
+ *     var next: ListNode? = null
+ * }
+ */
+class Solution {
+    fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
+        return search(head, n)
+    }
+    fun search(head: ListNode?, n: Int): ListNode? {
+        var mover: ListNode = head ?: return null
+        var tracker = mover
+        var count = 1
+        var track = 1
+        run process@ {
+            while (true) {
+                // tracker follow mover in (n) step difference
+                if (track < count-n) {
+                    tracker = tracker.next
+                    track ++
+                }
+                // if mover arrive at last, remove tracker's next and connect
+                mover = mover.next ?: run {
+                    // if have to remove first node, return second node directly
+                    if (count == n) return@search tracker.next
+                    tracker.next = tracker.next?.next
+                    return@process
+                }
+                count++
+            }
+        }
+        return head
+    }
+}
+```
+
+---
+
