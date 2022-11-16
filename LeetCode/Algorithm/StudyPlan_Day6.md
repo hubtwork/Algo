@@ -39,3 +39,39 @@ class Solution {
 
 ---
 
+#### 567. Permutation in String
+
+- **lang**  `kotlin` 
+- **tags**  `Hash Table`  `String` `Sliding Window` `Two Pointers`
+
+```kotlin
+class Solution {
+    fun checkInclusion(s1: String, s2: String): Boolean {
+        if (s1.length > s2.length) return false
+        // check count of each character ( lowercase alphabet )
+        val count = IntArray(26)
+        s1.forEach { ch -> count[ch-'a']++ }
+        // perform sliding window
+        var left = 0
+        var right = 0
+        var rest = s1.length    // window's rest of width
+        while (right < s2.length) {
+            // extend window's right
+            // if current can consume, reduce rest width
+            if (count[s2[right++] - 'a']-- >= 1) rest --
+            // if window consume all s1 members, exit
+            if (rest == 0) return true
+            // reduce window's left ( when right reached window max width )
+            if (right-left == s1.length) {
+                // if original left can move, increase rest width
+                if (count[s2[left++] - 'a']++ >= 0) rest ++
+            }
+        }
+        
+        return false
+    }
+}
+```
+
+---
+
