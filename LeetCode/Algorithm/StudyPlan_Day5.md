@@ -2,7 +2,7 @@
 
 <img src="../../assets/leetcode_study_day5.png" alt="leetcode_study_day2" style="zoom:50%;" />
 
-### Day 4
+### Day 5
 
 - [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/?envType=study-plan&id=algorithm-i)
 - [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/?envType=study-plan&id=algorithm-i)
