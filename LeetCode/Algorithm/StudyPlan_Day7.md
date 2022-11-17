@@ -1,6 +1,6 @@
 ## LeetCode Algorithm StudyPlan
 
-<img src="/Users/alenheo/Desktop/repo/algo/assets/leetcode_study_day7.png" alt="leetcode_study_day7" style="zoom:50%;" />
+<img src="../../assets/leetcode_study_day7.png" alt="leetcode_study_day7" style="zoom:50%;" />
 
 ### Day 6
 
@@ -68,6 +68,59 @@ class Solution {
             }
             
         }
+    }
+}
+```
+
+---
+
+#### 695. Max Area of Island
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `DFS` `Matrix` 
+
+```kotlin
+class Solution {
+    enum class Direction(val x: Int, val y: Int) {
+        Up(-1, 0),
+        Down(1, 0),
+        Left(0, -1),
+        Right(0, 1);
+    }
+    private lateinit var map: Array<IntArray>
+    private var group: Int = 2
+    
+    fun isInside(x: Int, y: Int): Boolean {
+        return x >= 0 && x < map.size && y >= 0 && y < map[0].size
+    }
+    
+    fun maxAreaOfIsland(grid: Array<IntArray>): Int {
+        map = grid
+        var result = 0
+        // find partial-island from all map tiles
+        for (x in 0..map.size-1) {
+            for (y in 0..map[0].size-1) {
+                if (map[x][y] == 1) {
+                    // count each groups' number of island
+                    // group will distinguish island if i already checked
+                    val tmp = trackIsland(x, y)
+                    result = Math.max(result, tmp)
+                    group++
+                }
+            }
+        }
+        return result
+    }
+    fun trackIsland(x: Int, y: Int): Int {
+        // if is not inside or tile is (already checked or not island) count 0
+        if (!isInside(x, y) || map[x][y] != 1) return 0
+        // coloring tile with group number and process 4-direction
+        map[x][y] = group
+        return 1 +
+        trackIsland(x + Direction.Up.x, y + Direction.Up.y) +
+        trackIsland(x + Direction.Down.x, y + Direction.Down.y) +
+        trackIsland(x + Direction.Left.x, y + Direction.Left.y) +
+        trackIsland(x + Direction.Right.x, y + Direction.Right.y)
     }
 }
 ```

@@ -1,6 +1,6 @@
 ## LeetCode Algorithm StudyPlan
 
-<img src="../../assets/leetcode_study_day3.png" alt="leetcode_study_day2" style="zoom:50%;" />
+<img src="../../assets/leetcode_study_day3.png" alt="leetcode_study_day3" style="zoom:50%;" />
 
 ### Day 3
 
