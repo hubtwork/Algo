@@ -12,17 +12,25 @@
 ```kotlin
 class Solution {
     fun makeGood(s: String): String {
-        return withList(s)
+        return withStack(s)
+    }
+    fun withStack(s: String): String {
+        return Stack<Char>().apply {
+            s.forEach { c ->
+                if (isNotEmpty() && peek() adjacentWith c) pop()
+                else push(c)
+            }
+        }.joinToString("")
     }
     fun withList(s: String): String {
         return mutableListOf<Char>().apply {
             s.forEach { c ->
-                if (isNotEmpty() && last() sameWith c) removeAt(size - 1)
+                if (isNotEmpty() && last() adjacentWith c) removeAt(size - 1)
                 else add(c)
             }
         }.joinToString("")
     }
-    infix fun Char.sameWith(c: Char): Boolean {
+    infix fun Char.adjacentWith(c: Char): Boolean {
         // alphabet upper / lower 's ascii gap is 32
         return Math.abs(this - c) == 32
     }
