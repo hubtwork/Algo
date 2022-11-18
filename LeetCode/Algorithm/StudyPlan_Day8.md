@@ -67,3 +67,61 @@ class Solution {
 
 ---
 
+#### 116. Populating Next Right Pointers in Each Node
+
+- **lang**  `kotlin` 
+- **tags**  `Linked List` `Tree` `DFS` `BFS` `Binary Tree` 
+
+```kotlin
+/**
+ * Definition for a Node.
+ * class Node(var `val`: Int) {
+ *     var left: Node? = null
+ *     var right: Node? = null
+ *     var next: Node? = null
+ * }
+ */
+
+class Solution {
+    fun connect(root: Node?): Node? {
+        if (root == null) return null
+        traverse(root)
+        return root
+    }
+    fun traverse(node: Node) {
+        // each step ( depth ) will increase 2times.
+        // (step ~ 1 rtl) for indicating have to increase step
+        var step = 1
+        var current = step
+        // save before node for same step
+        var next: Node? = null
+        // traverse BFS
+        val nodeQ = mutableListOf<Node>(node)
+        while(!nodeQ.isEmpty()) {
+            val node = nodeQ.get(0)
+            nodeQ.removeAt(0)
+            // connect with before node
+            node.next = next
+            // it's perfect binary tree, so if l or r exists, another too.
+            if (node.left != null) {
+                nodeQ.add(node.right!!)
+                nodeQ.add(node.left!!)
+            }
+            // if it's first element of step, go to next step
+            // else move before node of current step
+            if (current == 1) {
+                step *= 2
+                current = step
+                next = null
+            } else {
+                current --
+                next = node
+            }
+        }
+        
+    }
+}
+```
+
+---
+
