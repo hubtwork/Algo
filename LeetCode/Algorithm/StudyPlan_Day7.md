@@ -2,7 +2,7 @@
 
 <img src="../../assets/leetcode_study_day7.png" alt="leetcode_study_day7" style="zoom:50%;" />
 
-### Day 6
+### Day 7
 
 - [733. Flood Fill](https://leetcode.com/problems/flood-fill/?envType=study-plan&id=algorithm-i)
 - [695. Max Area of Island](https://leetcode.com/problems/max-area-of-island/?envType=study-plan&id=algorithm-i)
