@@ -90,7 +90,7 @@ class Solution {
     }
     // Space Complexity optimization
     fun traverseOptimized(node: Node) {
-        var parent: Node = node
+        var parent: Node? = node
         /*
             control each childs at steps.
             1 - 1. connect child's left to child's right
@@ -98,8 +98,8 @@ class Solution {
             1 - 3. move current to next
             2. move cursor to next level.
         */
-        while (true) {
-            var current: Node = parent
+        while (parent != null) {
+            var current: Node = parent ?: return
             while (true) {
                 val leftChild = current.left ?: return
                 leftChild.next = current.right
@@ -107,7 +107,7 @@ class Solution {
                 current.right?.next = next.left
                 current = next
             }
-            parent = parent.left!!
+            parent = parent.left
         }
     }
     fun traverse(node: Node) {
