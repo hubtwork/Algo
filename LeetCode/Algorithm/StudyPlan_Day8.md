@@ -85,8 +85,30 @@ class Solution {
 class Solution {
     fun connect(root: Node?): Node? {
         if (root == null) return null
-        traverse(root)
+        traverseOptimized(root)
         return root
+    }
+    // Space Complexity optimization
+    fun traverseOptimized(node: Node) {
+        var parent: Node = node
+        /*
+            control each childs at steps.
+            1 - 1. connect child's left to child's right
+            1 - 2. if current's next exist, connect current's right to next's left
+            1 - 3. move current to next
+            2. move cursor to next level.
+        */
+        while (true) {
+            var current: Node = parent
+            while (true) {
+                val leftChild = current.left ?: return
+                leftChild.next = current.right
+                val next = current.next ?: break
+                current.right?.next = next.left
+                current = next
+            }
+            parent = parent.left!!
+        }
     }
     fun traverse(node: Node) {
         // each step ( depth ) will increase 2times.
