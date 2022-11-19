@@ -1,6 +1,14 @@
 ## LeetCode Problems
 
+##### Memory Usage first prize
 
+> I know there're many conditions when evaluating submission in leetcode, it's not a absolute evaluation.
+>
+> Eventhough i used custom data class for readabilities of codes, 100% beat in memory usage! XD
+
+<img src="../../assets/leetcode_587_prize.png" alt="leetcode_587_prize.png" style="zoom:50%;" />
+
+#### 
 
 #### 587. Erect the Fence
 
