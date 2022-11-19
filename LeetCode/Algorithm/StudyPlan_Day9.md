@@ -85,3 +85,62 @@ class Solution {
 
 ---
 
+#### 994. Rotting Oranges
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `BFS` `Matrix`
+
+```kotlin
+class Solution {
+    enum class Direction(val x: Int, val y: Int) {
+        Up(-1, 0),
+        Down(1, 0),
+        Left(0, -1),
+        Right(0, 1);
+    }
+    private lateinit var orranges: Array<IntArray>
+    fun orangesRotting(grid: Array<IntArray>): Int {
+        orranges = grid
+        return bfs()
+    }
+    fun isInside(x: Int, y: Int): Boolean =
+        x >= 0 && x < orranges.size && y >= 0 && y < orranges[0].size
+    fun bfs(): Int {
+        // register rotten-start orrange's positions and count fresh-orrange
+        var count = 0
+        var q: Queue<Pair<Int, Int>> = LinkedList()
+        orranges.forEachIndexed { x, row ->
+            row.forEachIndexed { y, value ->
+                if (value == 2) q.add(Pair(x, y))
+                else if (value == 1) count ++
+            }
+        }
+        // if no fresh-orrange, return 0
+        if (count == 0) return 0
+        // consume fresh-orranges
+        var minute = -1
+        while (q.isNotEmpty()) {
+            val size = q.size
+            // each step, consume and register new rotten-orranges
+            for (loop in 0..size-1) {
+                val current = q.poll()
+                for (di in Direction.values()) {
+                    val dx = current.first + di.x
+                    val dy = current.second + di.y
+                    if (isInside(dx, dy) && orranges[dx][dy] == 1) {
+                        orranges[dx][dy] = 2
+                        q.add(Pair(dx, dy))
+                        count--
+                    }
+                }
+            }
+            minute++
+        }
+        // if fresh-orranges remain, return -1
+        return if (count != 0) -1 else minute
+    }
+}
+```
+
+---
+
