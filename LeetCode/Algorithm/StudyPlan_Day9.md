@@ -2,7 +2,7 @@
 
 <img src="/Users/alenheo/Desktop/repo/algo/assets/leetcode_study_day9.png" alt="leetcode_study_day9" style="zoom:50%;" />
 
-### Day 8
+### Day 9
 
 - [542. 01 Matrix](https://leetcode.com/problems/01-matrix/?envType=study-plan&id=algorithm-i)
 - [994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/?envType=study-plan&id=algorithm-i)
