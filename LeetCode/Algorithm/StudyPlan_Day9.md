@@ -12,7 +12,7 @@
 #### 542. 01 Matrix
 
 - **lang**  `kotlin` 
-- **tags**  `Array` `BFS` `Matrix`
+- **tags**  `Array` `BFS` `Matrix` `DP`
 
 ```kotlin
 class Solution {
@@ -25,7 +25,8 @@ class Solution {
     private lateinit var map: Array<IntArray>
     fun updateMatrix(mat: Array<IntArray>): Array<IntArray> {
         map = mat
-        bfs()
+        // bfs()
+        dp()
         return map
     }
     fun isInside(x: Int, y: Int): Boolean {
@@ -55,7 +56,30 @@ class Solution {
             }
         }
     }
-    
+    fun dp() {
+        val maxLength = map.size + map[0].size
+        // check length from top, left
+        map.forEachIndexed { x, row ->
+            row.forEachIndexed { y, value -> 
+                if (map[x][y] != 0) {
+                    val top: Int = if (x >= 1) map[x-1][y] else maxLength
+                    val left: Int = if (y >= 1) map[x][y-1] else maxLength
+                    // 
+                    map[x][y] = Math.min(top, left) + 1
+                }
+            }
+        }
+        // check length from bottom, right ( reversed order )
+        for (x in map.size-1 downTo 0) {
+            for (y in map[0].size-1 downTo 0) {
+                if (map[x][y] != 0) {
+                    val bottom: Int = if (x < map.size-1) map[x+1][y] else maxLength
+                    val right: Int = if (y < map[0].size-1) map[x][y+1] else maxLength
+                    map[x][y] = Math.min(map[x][y], Math.min(bottom, right) + 1)
+                }
+            }
+        }
+    }
 }
 ```
 
