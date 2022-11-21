@@ -77,3 +77,35 @@ class Solution {
 
 ---
 
+#### 784. Letter Case Permutation
+
+- **lang**  `kotlin` 
+- **tags**  `BackTracking` `String`
+
+```kotlin
+class Solution {
+    private val result = mutableListOf<String>()
+    fun letterCasePermutation(s: String): List<String> {
+        track("", s, 0)
+        return result
+    }
+    // track in order
+    fun track(string: String, s: String, idx: Int) {
+        // if read all string, add as result
+        if (idx == s.length) {
+            result.add(string)
+            return
+        }
+        // add current idx, and track next
+        track(string + s[idx], s, idx+1)
+        // if it's alphabet, add additional string with reversed character
+        if (!s[idx].isDigit()) {
+            val reversed = string + (s[idx] + if (s[idx].isLowerCase()) -32 else 32)
+            track(reversed, s, idx+1)
+        }
+    }
+}
+```
+
+---
+
