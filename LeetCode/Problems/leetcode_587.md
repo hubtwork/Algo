@@ -8,8 +8,6 @@
 
 <img src="../../assets/leetcode_587_prize.png" alt="leetcode_587_prize.png" style="zoom:50%;" />
 
-#### 
-
 #### 587. Erect the Fence
 
 - **link**  [587. Erect the Fence](https://leetcode.com/problems/erect-the-fence/)

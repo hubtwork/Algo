@@ -6,7 +6,7 @@
 
 - **link**  [1114. Print in Order](https://leetcode.com/problems/print-in-order/)
 
-- **lang**  `kotlin` 
+- **lang**  `java` 
 - **tags**  `Concurrency`
 
 ```java
