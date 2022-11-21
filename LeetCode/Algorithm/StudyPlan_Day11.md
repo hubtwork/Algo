@@ -42,3 +42,38 @@ class Solution {
 
 ---
 
+#### 46. Permutations
+
+- **lang**  `kotlin` 
+- **tags**  `BackTracking` `Array`
+
+```kotlin
+class Solution {
+    private val result = mutableListOf<List<Int>>()
+    fun permute(nums: IntArray): List<List<Int>> {
+        track(setOf<Int>(), listOf<Int>(), nums)
+        return result
+    }
+    // track all given numbers and add each.
+    fun track(registered: Set<Int>, list: List<Int>, nums: IntArray) {
+        // if all numbers added, add as result
+        if (registered.size == nums.size) {
+            result.add(list)
+            return
+        }
+        // traverse all given numbers
+        for (i in 0..nums.size-1) {
+            // if this is already added, skip it.
+            val num = nums[i]
+            if (registered.contains(num)) continue
+            // track rest seats
+            var newSet = registered
+            var newList = list
+            track(newSet + num, newList + num, nums)
+        }
+    }
+}
+```
+
+---
+
