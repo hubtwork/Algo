@@ -1,0 +1,40 @@
+## LeetCode Algorithm StudyPlan
+
+<img src="../../assets/leetcode_study_day12.png" alt="leetcode_study_day12" style="zoom:50%;" />
+
+### Day 11
+
+- [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/?envType=study-plan&id=algorithm-i)
+- [198. House Robber](https://leetcode.com/problems/house-robber/?envType=study-plan&id=algorithm-i)
+- [120. Triangle](https://leetcode.com/problems/triangle/?envType=study-plan&id=algorithm-i)
+
+---
+
+#### 70. Climbing Stairs
+
+- **lang**  `kotlin` 
+- **tags**  `Math` `DP` `Memoization`  
+
+```kotlin
+class Solution {
+    fun climbStairs(n: Int): Int {
+        val dp = IntArray(n+1)
+        if (n < 3) return n
+        dp[0] = 0
+        dp[1] = 1
+        dp[2] = 2
+        /*
+            stair climbing way counting logic
+            1. can jump 1 or 2 stairs
+            2. so count of [i] ?
+                1) [i-1] ways + jump 1
+                2) [i-2] ways + jump 2
+        */
+        for (i in 3..n) dp[i] = dp[i-1] + dp[i-2]
+        return dp[n]
+    }
+}
+```
+
+---
+
