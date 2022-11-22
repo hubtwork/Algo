@@ -71,3 +71,46 @@ class Solution {
 
 ---
 
+#### 120. Triangle
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `DP` 
+
+```kotlin
+import kotlin.math.min
+class Solution {
+    fun minimumTotal(triangle: List<List<Int>>): Int {
+        val depth = triangle.size
+        if (depth == 1) return triangle[0][0]
+        var cursor = 1
+        var result = Int.MAX_VALUE
+        var beforeLevel = IntArray(1).apply { set(0, triangle[0][0]) }
+        while (cursor < depth) {
+            var level = IntArray(cursor+1)
+            triangle[cursor].forEachIndexed { idx, value -> 
+                // each loc's minimum step
+                // first or last : before's first / last + loc
+                // else : before's idx-1 or idx + loc
+                level[idx] = value + when {
+                    idx == 0 -> beforeLevel[0]
+                    idx == cursor -> beforeLevel[idx-1]
+                    else -> min(beforeLevel[idx-1], beforeLevel[idx])
+                }
+                /*
+                    avoid traverse calculation when last level arrived.
+                    
+                    if do not realtime-calculation, 
+                    have to min calculation on last level ( TC + O(n) )
+                */
+                if (cursor == depth-1) result = min(result, level[idx])
+            }
+            beforeLevel = level
+            cursor ++
+        }
+        return result
+    }
+}
+```
+
+---
+
