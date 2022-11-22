@@ -2,7 +2,7 @@
 
 <img src="../../assets/leetcode_study_day12.png" alt="leetcode_study_day12" style="zoom:50%;" />
 
-### Day 11
+### Day 12
 
 - [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/?envType=study-plan&id=algorithm-i)
 - [198. House Robber](https://leetcode.com/problems/house-robber/?envType=study-plan&id=algorithm-i)
