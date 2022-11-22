@@ -38,3 +38,36 @@ class Solution {
 
 ---
 
+#### 198. House Robber
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `DP` 
+
+```kotlin
+import kotlin.math.*
+class Solution {
+    fun rob(nums: IntArray): Int {
+        // avoid index out of range
+        val size = nums.size
+        if (size == 1) return nums[0]
+        if (size == 2) return max(nums[0], nums[1])
+        /*
+            robbing best logic
+            if current house = i, rob this or not ?
+            1) rob this house = max : this + acc[this-2]
+            2) don't rob this house = max : acc[this-1]
+        */
+        val dp = IntArray(nums.size)
+        dp[0] = nums[0]
+        dp[1] = max(nums[0], nums[1])
+        var i = 1
+        while (++i < size) {
+            dp[i] = max(nums[i] + dp[i-2], dp[i-1])
+        }
+        return dp[size-1]
+    }
+}
+```
+
+---
+
