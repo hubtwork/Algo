@@ -7,7 +7,7 @@
 - **link**  [79. Word Search](https://leetcode.com/problems/word-search/)
 
 - **lang**  `kotlin` 
-- **tags**  `Math` `Array` `Matrix`
+- **tags**  `Back Tracking` `Array` `Matrix`
 
 ```kotlin
 class Solution {
