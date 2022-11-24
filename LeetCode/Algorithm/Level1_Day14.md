@@ -1,8 +1,8 @@
 ## LeetCode Algorithm StudyPlan
 
-<img src="../../assets/leetcode_study_day14.png" alt="leetcode_study_day14" style="zoom:50%;" />
+<img src="../../assets/leetcode_algo_lv1_day14.png" alt="leetcode_algo_lv1_day14" style="zoom:50%;" />
 
-<img src="../../assets/leetcode_algo1_complete.png" alt="leetcode_algo1_complete.png" style="zoom:50%;" />
+<img src="../../assets/leetcode_algo_lv1_complete.png" alt="leetcode_algo_lv1_complete.png" style="zoom:50%;" />
 
 ### Day 14
 
