@@ -2,6 +2,8 @@
 
 <img src="../../assets/leetcode_study_day14.png" alt="leetcode_study_day14" style="zoom:50%;" />
 
+<img src="../../assets/leetcode_algo1_complete.png" alt="leetcode_algo1_complete.png" style="zoom:50%;" />
+
 ### Day 14
 
 - [190. Reverse Bits](https://leetcode.com/problems/reverse-bits/?envType=study-plan&id=algorithm-i)
@@ -37,6 +39,36 @@ class Solution {
             num = num.shr(1)
         }
         return pos
+    }
+}
+```
+
+---
+
+#### 136. Single Number
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `BitManipulation` 
+
+```kotlin
+class Solution {
+    fun singleNumber(nums: IntArray): Int {
+        return nums.seekSingle()
+    }
+    fun IntArray.seekSingle(): Int {
+        /**
+            4, 3, 4, 5, 3
+            100, 011, 100, 101, 011
+            
+            000 ^ 100 = 100
+            100 ^ 011 = 111
+            111 ^ 100 = 011
+            011 ^ 101 = 110
+            110 ^ 011 = 101 (5)
+        */
+        var bit = 0
+        this.forEach { value -> bit = bit.xor(value) }
+        return bit
     }
 }
 ```
