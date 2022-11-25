@@ -1,6 +1,6 @@
 ## LeetCode Algorithm StudyPlan
 
-<img src="../../assets/leetcode_program_lev1_day1.png" alt="leetcode_programming_skills_level1_day1" style="zoom:50%;" />
+<img src="../../assets/leetcode_program_lv1_day1.png" alt="leetcode_programming_skills_level1_day1" style="zoom:50%;" />
 
 ### Day 1
 
@@ -66,4 +66,3 @@ class Solution {
 
 ---
 
-#### 
