@@ -6,7 +6,7 @@
 
 - **link**  [627. Swap Salary](https://leetcode.com/problems/swap-salary/)
 
-- **lang**  `kotlin` 
+- **lang**  `mysql` 
 - **tags**  `Database`
 
 ```mysql
