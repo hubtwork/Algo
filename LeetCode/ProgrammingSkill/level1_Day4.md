@@ -56,7 +56,7 @@ class Solution {
 #### 202. Happy Number
 
 - **lang**  `kotlin` 
-- **tags**  `Hash Table` `Math` `Tow Pointers`
+- **tags**  `Hash Table` `Math` `Two Pointers`
 
 ```kotlin
 class Solution {
@@ -80,6 +80,38 @@ class Solution {
             num /= 10
         }
         return beHappy(happyRule)
+    }
+}
+```
+
+---
+
+#### 1790. Check if One String Swap Can Make Strings Equal
+
+- **lang**  `kotlin` 
+- **tags**  `Hash Table` `String` `Counting`
+
+```kotlin
+class Solution {
+    // memorize first unmatched pair
+    private var memo: Pair<Char, Char>? = null
+    fun areAlmostEqual(s1: String, s2: String): Boolean {
+        var count = 0
+        // seek unmatched pair
+        for (i in 0..s1.length-1) {
+            if (s1[i] != s2[i]) {
+                // if found umatched pair already twice, it can't be accquire rule.
+                if (count++ > 2) return false
+                memo?.let {
+                    // if memo is exists but it's not matched with reversed pair, return false
+                    if (!(it.first == s2[i] && it.second == s1[i])) return false
+                }?: run {
+                    // memorize this pair for next compare
+                    memo = s1[i] to s2[i]
+                }
+            }
+        }
+        return if (count == 1) false else true
     }
 }
 ```
