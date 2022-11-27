@@ -53,3 +53,36 @@ class Solution {
 
 ---
 
+#### 202. Happy Number
+
+- **lang**  `kotlin` 
+- **tags**  `Hash Table` `Math` `Tow Pointers`
+
+```kotlin
+class Solution {
+    // memorize passed number
+    private val memo = mutableSetOf<Int>()
+    fun isHappy(n: Int): Boolean {
+        return beHappy(n)
+    }
+    fun beHappy(n: Int): Boolean {
+        // if memorized refaced, it's cycle.
+        if (memo.contains(n)) return false
+        // find happy number
+        if (n == 1) return true
+        memo.add(n)
+        // create next number based on happy rule
+        var happyRule = 0
+        var num = n
+        while (num > 0) {
+            val mod = num%10
+            happyRule += mod * mod
+            num /= 10
+        }
+        return beHappy(happyRule)
+    }
+}
+```
+
+---
+
