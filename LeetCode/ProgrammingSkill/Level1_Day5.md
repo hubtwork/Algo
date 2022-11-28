@@ -43,3 +43,31 @@ class Solution {
 
 ---
 
+#### 496. Next Greater Element I
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `Hash Table` `Stack` `Monotonic Stack`
+
+```kotlin
+class Solution {
+    fun nextGreaterElement(nums1: IntArray, nums2: IntArray): IntArray {
+        return findNextGreater(nums1, nums2)
+    }
+    fun findNextGreater(nums1: IntArray, nums2: IntArray): IntArray {
+        val greaterMap = mutableMapOf<Int, Int>()
+        val stack = Stack<Int>()
+        // record each number's next greater
+        // all numbers are unique, so using stack and record each greater of them.
+        nums2.forEach { value ->
+            while(stack.isNotEmpty() && stack.peek() < value) greaterMap[stack.pop()] = value
+            stack.push(value)
+        }
+        // traverse nums1 and allocate each's next greater
+        nums1.forEachIndexed { idx, value -> nums1[idx] = greaterMap[value] ?: -1 }
+        return nums1
+    }
+}
+```
+
+---
+
