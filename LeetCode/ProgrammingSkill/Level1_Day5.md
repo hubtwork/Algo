@@ -71,3 +71,38 @@ class Solution {
 
 ---
 
+#### 1232. Check If It Is a Straight Line
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `Math` `Geometry` 
+
+```kotlin
+class Solution {
+    // object oriented for separate each line type
+    interface LineType {
+        object Vertical: LineType
+        object Horizontal: LineType
+        data class Straight(val incline: Double): LineType
+    }
+    
+    fun checkStraightLine(coordinates: Array<IntArray>): Boolean {
+        val lineType = makeLine(coordinates[0], coordinates[1])
+        for (i in 2..coordinates.size-1) {
+            // if one line is different with base lineType, it's not all-covered straight line
+            if (makeLine(coordinates[i], coordinates[i-1]) != lineType) return false
+        }
+        return true
+    }
+    // function to make line from given 2 points
+    fun makeLine(p1: IntArray, p2: IntArray): LineType {
+        return when {
+            p1[0] == p2[0] -> LineType.Vertical
+            p1[1] == p2[1] -> LineType.Horizontal
+            else -> LineType.Straight((p2[1] - p1[1]).toDouble() / (p2[0] - p1[0]))
+        }
+    }
+}
+```
+
+---
+
