@@ -1,4 +1,4 @@
-## LeetCode Algorithm StudyPlan
+## LeetCode ProgrammingSkills StudyPlan
 
 <img src="../../assets/leetcode_program_lv1_day1.png" alt="leetcode_programming_skills_level1_day1" style="zoom:50%;" />
 
