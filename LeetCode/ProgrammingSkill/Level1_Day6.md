@@ -44,3 +44,37 @@ class Solution {
 
 ---
 
+#### 283. Move Zeroes
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `Two Pointers`
+
+```kotlin
+class Solution {
+    fun moveZeroes(nums: IntArray): Unit {
+        nums.moveZero()
+    }
+    fun IntArray.moveZero() {
+        var zeroCount = 0
+        for (idx in 0..size-1) {
+            /*
+                0 1 0 3 12 ( idx = 0, zc = 1 )
+                1 0 0 3 12 ( idx = 1, zc = 1 )
+                1 0 0 3 12 ( idx = 2, zc = 2)
+                1 3 0 0 12 ( idx = 3, zc = 2)
+                1 3 12 0 0 ( idx = 4, zc = 2)
+                this[idx - zc] = this[idx]
+                this[idx] = 0
+            */
+            if (this[idx] == 0) zeroCount++
+            else if (zeroCount > 0) {
+                this[idx - zeroCount] = this[idx]
+                this[idx] = 0
+            }
+        }
+    }
+}
+```
+
+---
+
