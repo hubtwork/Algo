@@ -78,3 +78,24 @@ class Solution {
 
 ---
 
+#### 1672. Richest Customer Wealth
+
+- **lang**  `kotlin` 
+- **tags**  `Array` `Matrix`
+
+```kotlin
+class Solution {
+    fun maximumWealth(accounts: Array<IntArray>): Int {
+        var result = -1
+        accounts.forEach { account ->
+            // get summation of each account's total wealth
+            if (result == -1) result = account.sum()
+            else result = Math.max(result, account.sum())
+        }
+        return result
+    }
+}
+```
+
+---
+
