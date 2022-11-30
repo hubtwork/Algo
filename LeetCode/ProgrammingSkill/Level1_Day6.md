@@ -2,7 +2,7 @@
 
 <img src="../../assets/leetcode_program_lv1_day6.png" alt="leetcode_programming_skills_level1_day6" style="zoom:50%;" />
 
-### Day 5
+### Day 6
 
 - [1588. Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays/?envType=study-plan&id=programming-skills-i)
 - [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/?envType=study-plan&id=programming-skills-i)
