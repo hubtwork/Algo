@@ -73,3 +73,30 @@ class Solution {
 
 ---
 
+#### 389. Find the Difference
+
+- **lang**  `kotlin` 
+- **tags**  `String` `Hash Table` `Bit Manipulation` `Sorting` 
+
+```kotlin
+class Solution {
+    fun findTheDifference(s: String, t: String): Char {
+        return s getDiff t
+    }
+    // with xor calculation, different one can be found
+    /* 
+        think Below case,
+        0100 ^ 1011 ^ 0100 = 1111 ^ 0100 = 1011
+        bitwise-xor can be erased by doubled-xor
+    */
+    infix fun String.getDiff(target: String): Char {
+        var result = 0
+        this.forEach { result = result.xor(it.toInt()) }
+        target.forEach { result = result.xor(it.toInt()) }
+        return result.toChar()
+    }
+}
+```
+
+---
+
