@@ -38,3 +38,38 @@ class Solution {
 
 ---
 
+#### 1678. Goal Parser Interpretation
+
+- **lang**  `kotlin` 
+- **tags**  `String`
+
+```kotlin
+class Solution {
+    fun interpret(command: String): String {
+        var result = mutableListOf<Char>()
+        var i = 0
+        while (i < command.length) {
+            // handle by each commands' input-entrance
+            when(command[i]) {
+                'G' -> { result.add(command[i++]) }
+                '(' -> {
+                    // consume by size of each commands
+                    if (command[i+1] == ')') {
+                        result.add('o')
+                        i += 2
+                    } else if (command[i+1] == 'a') {
+                        result.add('a')
+                        result.add('l')
+                        i += 4
+                    }
+                }
+                else -> break
+            }
+        }
+        return result.joinToString("")
+    }
+}
+```
+
+---
+
