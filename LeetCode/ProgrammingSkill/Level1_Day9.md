@@ -31,3 +31,37 @@ class Solution {
 
 ---
 
+#### 1309. Decrypt String from Alphabet to Integer Mapping
+
+- **lang**  `kotlin` 
+- **tags**  `String`
+
+```kotlin
+class Solution {
+    fun freqAlphabets(s: String): String {
+        var result = ""
+        var i = s.length - 1
+        while (i >= 0) {
+            // get decoded based on rule.
+            val decoded = if (s[i] == '#') {
+                // if met #, decode next 2 words
+                val sec = s[--i]
+                val fir = s[--i]
+                "$fir$sec".applyDecode()
+            } else "${s[i]}".applyDecode()
+            // add string to front-direction
+            result = decoded + result
+            i --
+        }
+        return result
+    }
+    fun String.applyDecode(): Char {
+        // in ascii, 'a' = 65
+        return (this.toInt() + 'a'.toInt() - 1).toChar()
+    }
+    
+}
+```
+
+---
+
