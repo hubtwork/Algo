@@ -74,7 +74,7 @@ class Solution {
 
 ---
 
-#### 104. Maximum Depth of Binary Tree
+#### 404. Sum of Left Leaves
 
 - **lang**  `kotlin` 
 - **tags**  `Tree` `BFS` `Binary Tree`
@@ -108,6 +108,43 @@ class Solution {
             depth ++
         }
         return depth
+    }
+}
+```
+
+---
+
+#### 104. Maximum Depth of Binary Tree
+
+- **lang**  `kotlin` 
+- **tags**  `Tree` `DFS` `Binary Tree`
+
+```kotlin
+/**
+ * Example:
+ * var ti = TreeNode(5)
+ * var v = ti.`val`
+ * Definition for a binary tree node.
+ * class TreeNode(var `val`: Int) {
+ *     var left: TreeNode? = null
+ *     var right: TreeNode? = null
+ * }
+ */
+class Solution {
+    fun sumOfLeftLeaves(root: TreeNode?): Int {
+        var result = 0
+        fun dfs(node: TreeNode) {
+            // check left
+            node.left ?.let { left ->
+                // if left has no childs, it's left leaf
+                if (left.left == null && left.right == null) result += left.`val`
+                else dfs(left)
+            }
+            // check right
+            node.right ?.let { right -> dfs(right) }
+        }
+        dfs(root ?: return 0)
+        return result
     }
 }
 ```
