@@ -74,3 +74,43 @@ class Solution {
 
 ---
 
+#### 104. Maximum Depth of Binary Tree
+
+- **lang**  `kotlin` 
+- **tags**  `Tree` `BFS` `Binary Tree`
+
+```kotlin
+/**
+ * Example:
+ * var ti = TreeNode(5)
+ * var v = ti.`val`
+ * Definition for a binary tree node.
+ * class TreeNode(var `val`: Int) {
+ *     var left: TreeNode? = null
+ *     var right: TreeNode? = null
+ * }
+ */
+class Solution {
+    fun maxDepth(root: TreeNode?): Int {
+        val queue: Queue<TreeNode> = LinkedList<TreeNode>().apply {
+            // if root is null, depth is 0
+            add(root ?: return 0)
+        }
+        var depth = 0
+        while (queue.isNotEmpty()) {
+            // consume all elements in queue
+            for (i in 0..queue.size-1) {
+                // add each exist childs to queue
+                val node = queue.poll()
+                node.left ?.let { queue.add(it) }
+                node.right ?.let { queue.add(it) }
+            }
+            depth ++
+        }
+        return depth
+    }
+}
+```
+
+---
+
