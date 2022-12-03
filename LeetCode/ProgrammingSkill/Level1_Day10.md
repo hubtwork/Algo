@@ -42,3 +42,35 @@ class Solution {
 
 ---
 
+#### 876. Middle of the Linked List
+
+- **lang**  `kotlin` 
+- **tags**  `LinkedList` `Two Pointers`
+
+```kotlin
+/**
+ * Example:
+ * var li = ListNode(5)
+ * var v = li.`val`
+ * Definition for singly-linked list.
+ * class ListNode(var `val`: Int) {
+ *     var next: ListNode? = null
+ * }
+ */
+class Solution {
+    fun middleNode(head: ListNode?): ListNode? {
+        var front = head
+        var back = head
+        // move 2step on front node
+        // move 1step on back node, it will stop at middle node. ( 2 : 1 ) =
+        while (front?.next != null) {
+            front = front?.next?.next
+            back = back?.next
+        }
+        return back
+    }
+}
+```
+
+---
+
