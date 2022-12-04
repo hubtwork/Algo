@@ -49,3 +49,39 @@ class Solution {
 
 ---
 
+#### 232. Implement Queue using Stacks
+
+- **lang**  `kotlin` 
+- **tags**  `Stack` `Design` `Queue`
+
+```kotlin
+class MyQueue() {
+    // back-top stack
+    private val stack1 = Stack<Int>()
+    // front-top stack
+    private val stack2 = Stack<Int>()
+    
+    fun push(x: Int) {
+        // back-direction function
+        while (stack2.isNotEmpty()) stack1.add(stack2.pop())
+        stack1.add(x)
+    }
+    fun pop(): Int {
+        // front-direction function
+        while (stack1.isNotEmpty()) stack2.add(stack1.pop())
+        return stack2.pop()
+    }
+    fun peek(): Int {
+        // front-direction function
+        while (stack1.isNotEmpty()) stack2.add(stack1.pop())
+        return stack2.peek()
+    }
+    fun empty(): Boolean {
+        // check front & back either
+        return stack1.isEmpty() && stack2.isEmpty()
+    }
+}
+```
+
+---
+
