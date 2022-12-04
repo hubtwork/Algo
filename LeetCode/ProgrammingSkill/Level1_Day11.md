@@ -85,3 +85,35 @@ class MyQueue() {
 
 ---
 
+#### 242. Valid Anagram
+
+- **lang**  `kotlin` 
+- **tags**  `Hash Table` `String` `Sorting`
+
+```kotlin
+class Solution {
+    fun isAnagram(s: String, t: String): Boolean {
+        // anagram must have same length
+        if (s.length != t.length) return false
+        val countMap = mutableMapOf<Char, Int>().apply {
+            // memorize each character's count
+            s.forEach { c -> 
+                get(c) 
+                    ?.let { set(c, it + 1) } 
+                    ?:run { set(c, 1) } 
+            }
+        }
+        // check each character's count
+        t.forEach { c -> 
+            // if not memorized or already count is 0, it's new : not anagram
+            val count = countMap[c] ?: return false
+            if (count == 0) return false
+            countMap[c] = count - 1
+        }
+        return true
+    }
+}
+```
+
+---
+
