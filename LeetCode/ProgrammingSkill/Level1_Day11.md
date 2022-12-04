@@ -117,3 +117,23 @@ class Solution {
 
 ---
 
+#### 217. Contains Duplicate
+
+- **lang**  `kotlin` 
+- **tags**  `Hash Table` `Array` `Sorting`
+
+```kotlin
+class Solution {
+    fun containsDuplicate(nums: IntArray): Boolean {
+        val memo = mutableSetOf<Int>()
+        nums.forEach { c -> 
+            // fun MutableSet.add() returns false if it's already in set
+            if (!memo.add(c)) return true
+        }
+        return false
+    }
+}
+```
+
+---
+
