@@ -2,6 +2,8 @@
 
 <img src="../../assets/leetcode_program_lv1_day12.png" alt="leetcode_programming_skills_level1_day12" style="zoom:50%;" />
 
+<img src="../../assets/leetcode_program_lv1_complete.png" alt="leetcode_program_lv1_complete.png" style="zoom:50%;" />
+
 **( 303 ) Beats 100% !!!**
 
 > Beat 100% in Time / Space complexity on Kotlin solvers !!!
