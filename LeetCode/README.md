@@ -12,6 +12,10 @@
 
 - Programing Skills I **`Completed`** [Check](./ProgrammingSkills)
 
+#### Data Structure
+
+- Data Structure I **`OnGoing`** [Check](./DataStructure)
+
 
 
 ### Daily Challange
