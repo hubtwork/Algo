@@ -14,4 +14,4 @@ So like TIL, I try to solve at least one problem every day and remember the algo
 
 #### TARGET
 
-- LeetCode
+- [LeetCode](./LeetCode)
