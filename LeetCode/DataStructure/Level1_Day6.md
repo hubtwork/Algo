@@ -55,3 +55,24 @@ class Solution {
 
 ---
 
+#### 242. Valid Anagram
+
+- **lang**  `kotlin` 
+- **tags**  `String` `Sorting` `Hash Table`
+
+```kotlin
+class Solution {
+    fun isAnagram(s: String, t: String): Boolean {
+        // one's anagram must have same length with one.
+        if (s.length != t.length) return false
+        // anagram must have same character set and counts.
+        val count = IntArray(26)
+        s.forEach { value -> count[value - 'a']++ }
+        t.forEach { value -> if (count[value - 'a']-- == 0) return false }
+        return true
+    }
+}
+```
+
+---
+
