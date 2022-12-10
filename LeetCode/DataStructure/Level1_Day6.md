@@ -33,3 +33,25 @@ class Solution {
 
 ---
 
+#### 383. Ransom Note
+
+- **lang**  `kotlin` 
+- **tags**  `String` `Counting` `Hash Table`
+
+```kotlin
+class Solution {
+    fun canConstruct(ransomNote: String, magazine: String): Boolean {
+        // count each character
+        val count = IntArray(26)
+        magazine.forEach { value -> count[value - 'a'] += 1 }
+        // if current count is 0, unconstructable
+        ransomNote.forEach { value -> 
+            if (count[value - 'a']-- == 0) return false
+        }
+        return true
+    }
+}
+```
+
+---
+
