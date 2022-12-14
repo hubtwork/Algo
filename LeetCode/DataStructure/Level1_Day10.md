@@ -16,16 +16,6 @@
 - **tags**  `Stack` `DFS` `Tree` `Binary Tree`
 
 ```kotlin
-/**
- * Example:
- * var ti = TreeNode(5)
- * var v = ti.`val`
- * Definition for a binary tree node.
- * class TreeNode(var `val`: Int) {
- *     var left: TreeNode? = null
- *     var right: TreeNode? = null
- * }
- */
 class Solution {
     fun preorderTraversal(root: TreeNode?): List<Int> {
         // return recursiveDfs(root)
@@ -55,6 +45,96 @@ class Solution {
             // to traverse first on left, add right first.
             node.right?.let { stack.push(it) }
             node.left?.let { stack.push(it) }
+        }
+        return result
+    }
+}
+```
+
+---
+
+#### 94. Binary Tree Inorder Traversal
+
+- **lang**  `kotlin` 
+- **tags**  `Stack` `DFS` `Tree` `Binary Tree`
+
+```kotlin
+class Solution {
+    fun inorderTraversal(root: TreeNode?): List<Int> {
+        // return recursiveDfs(root)
+        return iterativeDfs(root)
+    }
+    fun recursiveDfs(root: TreeNode?): List<Int> {
+        root ?: return listOf()
+        return recursiveDfs(root.left) + listOf(root.`val`) + recursiveDfs(root.right)
+    }
+    fun iterativeDfs(root: TreeNode?): List<Int> {
+        val result = mutableListOf<Int>()
+        var cursor = root
+        val stack = Stack<TreeNode>()
+        // traverse until non-empty-stack & cursor exists
+        while (stack.isNotEmpty() || cursor != null) {
+            /*
+                for iterative inorder traversal
+                # if possible to go down to left, enroll each node to stack.
+                # from left bottom, up to top cursor with traverse each's right nodes.
+             */
+            if (cursor != null) {
+                stack.push(cursor)
+                cursor = cursor.left
+            } else {
+                cursor = stack.pop()
+                cursor?.let { result.add(it.`val`) }
+                cursor = cursor.right
+            }
+        }
+        return result
+    }
+}
+```
+
+---
+
+#### 145. Binary Tree Postorder Traversal
+
+- **lang**  `kotlin` 
+- **tags**  `Stack` `DFS` `Tree` `Binary Tree`
+
+```kotlin
+class Solution {
+    fun postorderTraversal(root: TreeNode?): List<Int> {
+        // return recursiveDfs(root)
+        return iterativeDfs(root)
+    }
+    fun recursiveDfs(root: TreeNode?): List<Int> {
+        root ?: return listOf()
+        return recursiveDfs(root.left) + recursiveDfs(root.right) + listOf(root.`val`)
+    }
+    fun iterativeDfs(root: TreeNode?): List<Int> {
+        val result = mutableListOf<Int>()
+        var cursor: TreeNode? = root
+        var prev: TreeNode? = null
+        val stack = Stack<TreeNode>()
+        while (stack.isNotEmpty() || cursor != null) {
+            /*
+                for iterative inorder traversal
+                # if possible to go down to left, enroll each node to stack.
+                # traverse
+                    1) from last saved node, move down to last right node.
+                    2) save already read cursor to prev and traverse reverse order.
+             */
+            if (cursor != null) {
+                stack.push(cursor)
+                cursor = cursor.left
+            } else {
+                cursor = stack.peek()
+                if (cursor.right == null || cursor.right == prev) {
+                    result.add(cursor.`val`)
+                    stack.pop()
+                    prev = cursor
+                    cursor = null
+                } else cursor = cursor.right
+            }
         }
         return result
     }
