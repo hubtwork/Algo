@@ -12,7 +12,7 @@
 #### 226. Invert Binary Tree
 
 - **lang**  `kotlin` 
-- **tags** `Tree` `DFS` `BinaryTree`
+- **tags** `Tree` `DFS` `Binary Tree`
 
 ```kotlin
 class Solution {
@@ -36,7 +36,7 @@ class Solution {
 #### 112. Path Sum
 
 - **lang**  `kotlin` 
-- **tags** `Tree` `DFS` `BinaryTree`
+- **tags** `Tree` `DFS` `Binary Tree`
 
 ```kotlin
 class Solution {
