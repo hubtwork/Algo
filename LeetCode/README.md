@@ -30,3 +30,13 @@
 | [Day 18](./Problems/leetcode_739.md)  | [Day 19](./Problems/leetcode_1971.md) | [Day 20](./Problems/leetcode_841.md)  | [Day 21](./Problems/leetcode_886.md)  |                                       | [Day 23](./Problems/leetcode_309.md) | [Day 24](./Problems/leetcode_790.md)  |
 | [Day 25](./Problems/leetcode_2389.md) |  [Day 26](./Problems/leetcode_55.md)  | [Day 27](./Problems/leetcode_2279.md) | [Day 28](./Problems/leetcode_1962.md) | [Day 29](./Problems/leetcode_1834.md) | [Day 30](./Problems/leetcode_797.md) | [Day 31](./Problems/leetcode_980.md)  |
 
+#### 2023. 01
+
+|                 Sun                 | Mon  | Tue  | Wed  | Thu  | Fri  | Sat  |
+| :---------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: |
+| [Day 1](./Problems/leetcode_290.md) |      |      |      |      |      |      |
+|                                     |      |      |      |      |      |      |
+|                                     |      |      |      |      |      |      |
+|                                     |      |      |      |      |      |      |
+|                                     |      |      |      |      |      |      |
+
