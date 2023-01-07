@@ -14,8 +14,7 @@ class Solution {
     /*
         Calculation Logic
         #1. Traverse from n-index clockWise to n-index.
-        - calc: gas_n + ...(gas_k - cost_k) - cost_n
-        - so, start-point's diff can be negative.
+        - calc: sum of all (gas_i - cost_i)
         #2. If "calc" positive, can traverse.
         #3. Start-point is must be first-all-positive-calc
      */
