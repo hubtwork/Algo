@@ -12,24 +12,25 @@
 ```kotlin
 class Solution {
     fun addBinary(a: String, b: String): String {
-        // read backward by move pointers
-        var aPtr = a.length-1
-        var bPtr = b.length-1
-        // carry for each next step.
+        // start with 0-index ( string is reversed )
+        var aPtr = a.length - 1
+        var bPtr = b.length - 1
+        // use carry and sum for iteration
         var carry = 0
-        var answer = ""
-        // iterate
-        while (aPtr >= 0 || bPtr >= 0) {
-            var sum = 0
+        var sum = 0
+        var result = ""
+        // iterate single pointer and with carry possibility
+        while (aPtr >= 0 || bPtr >= 0 || carry > 0) {
+            // check if is iterative and add to temporary sum
             if (aPtr >= 0) sum += a[aPtr--] - '0'
             if (bPtr >= 0) sum += b[bPtr--] - '0'
-            sum += carry
+            // add current index's summation to result
+            result = ('0' + (sum % 2)) + result
+            // carry and sum relocate for next index
             carry = sum / 2
-            sum = sum % 2
-            answer = sum.toString() + answer
+            sum = carry
         }
-        if (carry == 1) answer = "1$answer"
-        return answer
+        return result
     }
 }
 ```
