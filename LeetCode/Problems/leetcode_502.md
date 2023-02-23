@@ -15,8 +15,6 @@ class Solution {
         companion object {
             val minCapitalComparator = Comparator<Task> { me, other -> me.capital - other.capital }
             val maxProfitComparator = Comparator<Task> { me, other -> other.profit - me.profit }
-            
-            fun of(profit: Int, capital: Int) = Task(profit, capital)
         }
     }
 
@@ -26,7 +24,7 @@ class Solution {
         // maximum-profit-first PQ
         val profitPQ = PriorityQueue<Task> (Task.maxProfitComparator)
         // enroll capital-profit pairs
-        for (i in 0 until profits.size) { capitalPQ.add(Task.of(profits[i], capital[i])) }
+        for (i in 0 until profits.size) { capitalPQ.add(Task(profits[i], capital[i])) }
         // trace budgets.
         var budget = w
         for (i in 0 until k) {
