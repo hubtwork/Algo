@@ -18,7 +18,7 @@ class Solution {
         while (lowBound < highBound) {
             val mid = lowBound + (highBound - lowBound) / 2
             // we have to find num in phrase below
-            // arr[mid] - (mid + 1) : (-1) * count of total missing numbers when cursor is at mid
+            // arr[mid] - (mid + 1) : passed missing-number count in current cursor
             if (arr[mid] - (mid + 1) < k) lowBound = mid + 1
             else highBound = mid
         }
