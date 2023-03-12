@@ -21,8 +21,8 @@
  */
 class Solution {
     fun mergeKLists(lists: Array<ListNode?>): ListNode? {
-        // return withPQ(lists)
-        return withMapAndList(lists)
+        // return withMapAndList(lists)
+      	return withPQ(lists)
     }
     fun withMapAndList(lists: Array<ListNode?>): ListNode? {
         // Step 1. record counts of each `val` in all ListNodes.
@@ -52,26 +52,25 @@ class Solution {
         return rootNode
     }
     fun withPQ(lists: Array<ListNode?>): ListNode? {
-        // use built-in PQ for all `val` items ( not count, all values in )
-        val pq = PriorityQueue<Int>()
-        lists.forEach { node ->
-            var cursor = node
-            while(cursor != null) {
-                pq.add(cursor.`val`)
-                cursor = cursor.next
-            }   
+        // use PriorityQueue to get sorted merged lists.
+        val pq = PriorityQueue<Pair<Int, ListNode>> { x, y -> x.first - y.first}
+        // iterate and build merged lists.
+        for (el in lists) {
+            var node = el
+            while (node != null) {
+                pq.add(node.`val` to ListNode(node.`val`))
+                node = node.next
+            }
         }
-        // poll all PQ's values, create and connect new ListNode with it
-        val first = pq.poll()
-        if (first == null) return null
-        val rootNode: ListNode = ListNode(first)
-        var tempNode = rootNode
-        val length = pq.size
-        for (i in 0..length-1) {
-            tempNode.next = ListNode(pq.poll())
-            tempNode = tempNode.next
+        // pick one by one from pq and build.
+        // use empty head to calculate easy.
+        val head = ListNode(0)
+        var node = head ?: return null
+        while (pq.isNotEmpty()) {
+            node.next = pq.poll().second
+            node = node.next
         }
-        return rootNode
+        return head.next
     }
 }
 ```
